@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="70bd0b33-d7b1-4f15-8200-76c15e1c82cd" activeEnvironment="Default" name="REST Project 2" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="23a4c8ba-96b2-4f65-84ca-1193ea71d968" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://dummy.restapiexample.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://dummy.restapiexample.com</con:endpoint></con:endpoints><con:resource name="Employees" path="/api/v1/employees" id="5f3f58cc-c38d-4e8f-9a6d-ed8f33eb730e"><con:settings/><con:parameters/><con:method name="Employees 1" id="5f561e44-6da5-4d91-b78a-75e5fb7b8865" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html; charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" id="50669cce-d1da-405d-8b6f-6a8ee568b89e" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://dummy.restapiexample.com</con:endpoint><con:request/><con:originalUri>http://dummy.restapiexample.com/api/v1/employees</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="16ee8f55-b10c-4d69-a67b-6bb3612e9981" name="TestSuite"><con:description>TestSuite generated for REST Service [http://dummy.restapiexample.com]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="d8ca0630-8604-47dc-ba73-0b3f9dde443d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Employees TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [Employees] located at [/api/v1/employees]</con:description><con:settings/><con:testStep type="restrequest" name="Request 1" id="5ae0f6d3-dd63-4193-9013-58bcc633a1b1"><con:settings/><con:config service="http://dummy.restapiexample.com" resourcePath="/api/v1/employees" methodName="Employees 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Request 1" id="50669cce-d1da-405d-8b6f-6a8ee568b89e" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://dummy.restapiexample.com</con:endpoint><con:request/><con:originalUri>http://dummy.restapiexample.com/api/v1/employees</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="4082354b-d9e8-4fbb-9fa7-af2bc374b765" disabled="true"><con:settings/><con:config><script/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script1" id="645d073e-51f0-44d0-9a50-b0199543be9b" disabled="true"><con:settings/><con:config><script>Process proc=Runtime.getRuntime().exec("cmd /c start C:\\SOAPUI\\test.bat");
+proc.waitFor()</script></con:config></con:testStep><con:testStep type="groovy" name="groovy1" id="26ed60a2-706f-433b-b16b-617eebbab74b" disabled="true"><con:settings/><con:config><script>import jxl.*
+import jxl.write.*
+WritableWorkbook workbook = Workbook.createWorkbook(new File("C:/SOAPUI/Project/testProject.xls"))
+WritableSheet sheet = workbook.createSheet("Worksheet 1", 0)
+log.info(sheet1.isHidden())
+Label label = new Label(0, 2, "Test data in Column A, Row 3"); //column=0=A,row=0=1
+sheet.addCell(label);
+Label label1 = new Label(2, 2, "Column C, Row 3");
+sheet.addCell(label1);
+workbook.write()
+workbook.close()</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script4" id="80ad7f8f-0587-4549-8daf-e749b91589b6" disabled="true"><con:settings/><con:config><script>def fileName = "test.properties"
+// Defining a file handler/pointer to handle the file.
+def inputFile = new File("C:\\SOAPUI\\"+fileName)
+// Check if a file with same name exisits in the folder.
+if(inputFile.exists())
+{
+ // if a file exisits then it will print the message to the log.
+ log.info("A file named " + fileName + " already exisits in the same folder")
+ inputFile.write("Hello World11 ! \n")
+ inputFile.append("Hello mumma \n")
+ inputFile.append("Howz u? \n")
+}
+else
+{
+ //else it will create a file and write the text "Hello World !"
+ inputFile.write("Hello World !")
+
+
+}
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script11" id="bed61fc2-75cb-4638-bdef-b20e17c2b229"><con:settings/><con:config><script>
+def datasink = testRunner.testCase.testSteps('TestOutput')
+datasink.setPropertyValue('EmployeeName', EMPLOYEENAME)
+datasink.setPropertyValue('EmployeeID', EMPID)</script></con:config></con:testStep><con:testStep type="groovy" name="test" id="5871c004-f4fc-4500-8b6c-065980e44c46"><con:settings/><con:config><script/></con:config></con:testStep><con:setupScript>import com.eviware.soapui.impl.wsdl.*  
+import com.eviware.soapui.impl.WsdlInterfaceFactory
+
+String ProjectName = "C:/SOAPUI/Project/testProject.xml";
+String TestWSDL = "C:/SOAPUI/WSDL/AWSECommerceService_1.wsdl";
+String tstTestSuite = "C:/SOAPUI/Amazon-API.xml";
+
+/*
+log.info ("Path to WSDLs:");
+log.info ("TestWSDL - $TestWSDL");
+
+log.info ("Path to testSuite:");
+log.info ("testsuite- $tstTestSuite");
+*/
+
+def currentProject = testRunner.testCase.testSuite.project;
+WsdlProject project = new WsdlProject();
+WsdlInterface iface1 = WsdlInterfaceFactory.importWsdl(project,TestWSDL, true )[0]
+//Import of testsuite should go here
+
+
+project.importTestSuite(new File(tstTestSuite))
+project.saveAs(ProjectName);
+	
+
+/*
+project1 = testRunner.testCase.testSuite.project ; 
+tcase = project1.testSuites["Amazon-API"].testcases["CartAdd TestCase"]; 
+tstep = tcase.getTestStepByName("CartAdd"); 
+def status = tcase.run(testRunner, context) 
+def result = status.getStatus().toString(); 
+log.info (" ---- "+result)
+*/</con:setupScript><con:properties/></con:testCase><con:properties/><con:setupScript>import com.eviware.soapui.impl.wsdl.*  
+import com.eviware.soapui.impl.WsdlInterfaceFactory
+
+String ProjectName = "C:/SOAPUI/Project/testProject.xml";
+String TestWSDL = "C:/SOAPUI/WSDL/AWSECommerceService_1.wsdl";
+String tstTestSuite = "C:/SOAPUI/Amazon-API.xml";
+
+/*
+log.info ("Path to WSDLs:");
+log.info ("TestWSDL - $TestWSDL");
+
+log.info ("Path to testSuite:");
+log.info ("testsuite- $tstTestSuite");
+*/
+
+def currentProject = testRunner.testCase.testSuite.project;
+WsdlProject project = new WsdlProject();
+WsdlInterface iface1 = WsdlInterfaceFactory.importWsdl(project,TestWSDL, true )[0]
+//Import of testsuite should go here
+
+
+project.importTestSuite(new File(tstTestSuite))
+
+project.saveAs(ProjectName);
+	
+
+/*
+project1 = testRunner.testCase.testSuite.project ; 
+tcase = project1.testSuites["Amazon-API"].testcases["CartAdd TestCase"]; 
+tstep = tcase.getTestStepByName("CartAdd"); 
+def status = tcase.run(testRunner, context) 
+def result = status.getStatus().toString(); 
+log.info (" ---- "+result)
+*/</con:setupScript></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
